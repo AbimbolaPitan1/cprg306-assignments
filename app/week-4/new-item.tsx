@@ -7,13 +7,13 @@ export default function NewItem() {
   const [quantity, setQuantity] = useState(1);
   const [category, setCategory] = useState("produce");
 
-  // Validation state
+  
   const [nameTouched, setNameTouched] = useState(false);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    // Manual validation
+    
     if (!name || name.length < 2) {
       alert("Item name must be at least 2 characters long.");
       return;
@@ -31,7 +31,8 @@ export default function NewItem() {
       `Name: ${name}\nQuantity: ${quantity}\nCategory: ${category}`
     );
 
-    // Reset state
+   
+    
     setName("");
     setQuantity(1);
     setCategory("produce");
@@ -47,7 +48,7 @@ export default function NewItem() {
       </h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Name Field */}
+       
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Item Name
@@ -66,7 +67,8 @@ export default function NewItem() {
             placeholder="e.g. Apples"
           />
 
-          {/* Conditional Error Message */}
+         
+         
           {!name && nameTouched && (
             <p className="text-red-500 text-sm mt-1">
               Item name is required.
@@ -74,7 +76,8 @@ export default function NewItem() {
           )}
         </div>
 
-        {/* Quantity Field */}
+        
+        
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Quantity
@@ -90,7 +93,8 @@ export default function NewItem() {
           />
         </div>
 
-        {/* Category Field */}
+       
+       
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Category
@@ -114,7 +118,8 @@ export default function NewItem() {
           </select>
         </div>
 
-        {/* Submit Button */}
+        
+        
         <button
           type="submit"
           disabled={isFormInvalid}
