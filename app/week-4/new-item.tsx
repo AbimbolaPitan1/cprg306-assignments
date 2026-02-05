@@ -6,14 +6,11 @@ export default function NewItem() {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [category, setCategory] = useState("produce");
-
-  
   const [nameTouched, setNameTouched] = useState(false);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    
     if (!name || name.length < 2) {
       alert("Item name must be at least 2 characters long.");
       return;
@@ -27,12 +24,8 @@ export default function NewItem() {
 
     console.log(item);
 
-    alert(
-      `Name: ${name}\nQuantity: ${quantity}\nCategory: ${category}`
-    );
+    alert(`Name: ${name}\nQuantity: ${quantity}\nCategory: ${category}`);
 
-   
-    
     setName("");
     setQuantity(1);
     setCategory("produce");
@@ -42,13 +35,13 @@ export default function NewItem() {
   const isFormInvalid = !name || name.length < 2;
 
   return (
-    <div className="max-w-md mx-auto mt-10 bg-white p-6 rounded-lg shadow-md">
+    <div className="max-w-md mx-auto mt-10 bg-pink-50 p-6 rounded-lg shadow-md">
       <h2 className="text-2xl font-semibold mb-6 text-gray-800">
         Add New Item
       </h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
-       
+        
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Item Name
@@ -62,13 +55,10 @@ export default function NewItem() {
             className={`w-full px-3 py-2 rounded-md border focus:outline-none focus:ring-2 ${
               !name && nameTouched
                 ? "border-red-500 focus:ring-red-500"
-                : "border-gray-300 focus:ring-blue-500"
+                : "border-gray-300 focus:ring-purple-500"
             }`}
             placeholder="e.g. Apples"
           />
-
-         
-         
           {!name && nameTouched && (
             <p className="text-red-500 text-sm mt-1">
               Item name is required.
@@ -76,8 +66,8 @@ export default function NewItem() {
           )}
         </div>
 
-        
-        
+       
+       
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Quantity
@@ -93,8 +83,7 @@ export default function NewItem() {
           />
         </div>
 
-       
-       
+        
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Category
@@ -118,13 +107,13 @@ export default function NewItem() {
           </select>
         </div>
 
-        
-        
         <button
-          type="submit"
+          type="submit"     
           disabled={isFormInvalid}
-          className="w-full py-2 rounded-md text-white bg-blue-600 hover:bg-blue-700 transition
-                     disabled:bg-gray-400 disabled:cursor-not-allowed"
+          className="w-full py-2 rounded-md text-white bg-green-600 hover:bg-green-700 transition
+           disabled:bg-gray-400 disabled:cursor-not-allowed"
+           
+
         >
           Add Item
         </button>
@@ -132,6 +121,10 @@ export default function NewItem() {
     </div>
   );
 }
+
+
+
+
 
 
 
