@@ -32,7 +32,8 @@ export default function NewItem() {
     setNameTouched(false);
   };
 
-  const isFormInvalid = !name || name.length < 2;
+  const isNameInvalid = name.length < 2;
+  const isFormInvalid = isNameInvalid;
 
   return (
     <div className="max-w-md mx-auto mt-10 bg-pink-50 p-6 rounded-lg shadow-md">
@@ -41,7 +42,7 @@ export default function NewItem() {
       </h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        
+      
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Item Name
@@ -51,22 +52,21 @@ export default function NewItem() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             onBlur={() => setNameTouched(true)}
-            required
+            onFocus={() => setNameTouched(false)}
             className={`w-full px-3 py-2 rounded-md border focus:outline-none focus:ring-2 ${
-              !name && nameTouched
+              isNameInvalid && nameTouched
                 ? "border-red-500 focus:ring-red-500"
                 : "border-gray-300 focus:ring-purple-500"
             }`}
             placeholder="e.g. Apples"
           />
-          {!name && nameTouched && (
+          {isNameInvalid && nameTouched && (
             <p className="text-red-500 text-sm mt-1">
-              Item name is required.
+              Item name must be at least 2 characters long.
             </p>
           )}
         </div>
 
-       
        
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -83,7 +83,7 @@ export default function NewItem() {
           />
         </div>
 
-        
+       
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Category
@@ -107,13 +107,11 @@ export default function NewItem() {
           </select>
         </div>
 
+       
         <button
-          type="submit"     
+          type="submit"
           disabled={isFormInvalid}
-          className="w-full py-2 rounded-md text-white bg-green-600 hover:bg-green-700 transition
-           disabled:bg-gray-400 disabled:cursor-not-allowed"
-           
-
+          className="w-full py-2 rounded-md text-white bg-green-600 hover:bg-green-700 transition disabled:bg-gray-400 disabled:cursor-not-allowed"
         >
           Add Item
         </button>
@@ -121,6 +119,7 @@ export default function NewItem() {
     </div>
   );
 }
+
 
 
 
