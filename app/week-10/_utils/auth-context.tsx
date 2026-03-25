@@ -2,7 +2,8 @@
 
 import { useContext, createContext, useState, useEffect } from "react";
 import {
-  signInWithPopup,
+  signInWithRedirect,   
+  getRedirectResult,    
   signOut,
   onAuthStateChanged,
   GithubAuthProvider,
@@ -14,9 +15,10 @@ const AuthContext = createContext<any>(null);
 export const AuthContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<any>(null);
 
+  
   const gitHubSignIn = async () => {
     const provider = new GithubAuthProvider();
-    return signInWithPopup(auth, provider);
+    return signInWithRedirect(auth, provider);
   };
 
   const firebaseSignOut = async () => {
@@ -24,8 +26,14 @@ export const AuthContextProvider = ({ children }: { children: React.ReactNode })
   };
 
   useEffect(() => {
+    
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+    });
+
+   
+    getRedirectResult(auth).catch((error) => {
+      console.error("Redirect error:", error);
     });
 
     return () => unsubscribe();

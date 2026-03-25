@@ -43,7 +43,7 @@ export default function ShoppingListPage() {
     await addItem(user.uid, newItem);
     await loadItems();
 
-    // reset form
+    
     e.currentTarget.reset();
     setName("");
     setQuantity(1);
@@ -54,7 +54,7 @@ export default function ShoppingListPage() {
     <div style={styles.container}>
       <h1 style={styles.title}>Shopping List</h1>
 
-      {/* FORM */}
+      
       <form onSubmit={handleAddItem} style={styles.form}>
         <input
           type="text"
@@ -97,7 +97,7 @@ export default function ShoppingListPage() {
         </button>
       </form>
 
-      {/* LIST */}
+      
       <ul style={styles.list}>
         {items.map((item) => (
           <li key={item.id} style={styles.listItem}>
@@ -112,7 +112,7 @@ export default function ShoppingListPage() {
   );
 }
 
-/* 🎨 STYLES */
+
 const styles = {
   container: {
     maxWidth: "600px",
