@@ -19,9 +19,8 @@ export default function Page() {
     }
   }, [user, router]);
 
-  if (!user) {
-    return null;
-  }
+  
+  
 
   const handleItemSelect = (item: any) => {
     const cleanedName = item.name
