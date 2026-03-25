@@ -17,7 +17,7 @@ export default function ShoppingListPage() {
   const [quantity, setQuantity] = useState(1);
   const [category, setCategory] = useState("other");
 
-  // 
+   
   const loadItems = async () => {
     const user = auth.currentUser;
 
@@ -27,7 +27,7 @@ export default function ShoppingListPage() {
     setItems(items);
   };
 
-  // 
+  
   useEffect(() => {
     loadItems();
   }, []);
@@ -52,7 +52,7 @@ export default function ShoppingListPage() {
 
     setItems([...items, { id, ...newItem }]);
 
-    // reset form
+  
     setName("");
     setQuantity(1);
     setCategory("other");

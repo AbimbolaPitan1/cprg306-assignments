@@ -26,7 +26,7 @@ export default function Page() {
 
           <br />
 
-          <Link href="/week-8/shopping-list">
+          <Link href="/week-10/shopping-list">
             Go to Shopping List
           </Link>
         </div>
