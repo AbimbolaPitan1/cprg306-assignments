@@ -12,7 +12,7 @@ const firebaseConfig = {
 };
 
 
-const app = !getApps().length
+const app = getApps().length === 0
   ? initializeApp(firebaseConfig)
   : getApp();
 
