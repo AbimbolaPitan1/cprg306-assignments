@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { AuthContextProvider } from "./week-10/_utils/auth-context";
+import { AuthContextProvider } from "./_utils/auth-context";
 
 export const metadata: Metadata = {
   title: "Shopping List",
